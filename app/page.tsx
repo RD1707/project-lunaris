@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <div className="relative z-10 bg-black">
+      <div className="relative bg-black">
         <MissionSection />
         <FleetSection />
       </div>

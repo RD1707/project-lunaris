@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,8 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-black text-white`}>
-        <div className="flex flex-col min-h-screen">
+      <body className={`${poppins.className}`}>
+        <AnimatedBackground />
+        <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

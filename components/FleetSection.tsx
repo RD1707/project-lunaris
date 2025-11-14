@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const fleet = [
   {
     name: 'Stardust Cruiser',
-    description: 'Heavy-lift launch vehicle for deep space missions.',
+    description: 'A vanguarda da nossa frota, projetado para missões de longa duração no espaço profundo e pesquisa interplanetária.',
     image: '/fleet-starship.jpg',
   },
   {
     name: 'Odyssey Explorer',
-    description: 'Interplanetary vessel for long-duration crewed flights.',
+    description: 'Especializado em exploração e mapeamento de sistemas estelares, equipado com os mais avançados sensores e laboratórios.',
     image: '/fleet-explorer.jpg',
   },
 ];
@@ -29,15 +30,20 @@ const cardVariants = {
 
 const FleetCard = ({ name, description, image }: { name: string; description: string; image: string }) => (
   <motion.div
-    className="bg-gray-900/50 rounded-lg overflow-hidden backdrop-blur-sm border border-gray-700/50 text-center"
+    className="bg-gray-900/50 rounded-lg overflow-hidden backdrop-blur-sm border border-gray-700/50 text-center flex flex-col"
     variants={cardVariants}
   >
     <div className="relative h-80 w-full">
       <Image src={image} alt={name} layout="fill" objectFit="cover" />
     </div>
-    <div className="p-6">
+    <div className="p-6 flex flex-col flex-grow">
       <h3 className="text-3xl font-bold">{name}</h3>
-      <p className="mt-2 text-gray-400">{description}</p>
+      <p className="mt-2 text-gray-400 flex-grow">{description}</p>
+      <div className="mt-4">
+        <Link href="/fleet" className="text-white font-semibold hover:text-blue-400 transition-colors">
+          Ver Detalhes &rarr;
+        </Link>
+      </div>
     </div>
   </motion.div>
 );
@@ -45,7 +51,7 @@ const FleetCard = ({ name, description, image }: { name: string; description: st
 const FleetSection = () => {
   return (
     <section className="py-20">
-      <h2 className="text-5xl font-bold text-center mb-12">Our Fleet</h2>
+      <h2 className="text-5xl font-bold text-center mb-12">Nossa Frota</h2>
       <motion.div
         className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"
         initial="hidden"
